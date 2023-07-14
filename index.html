@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 548px;
+            height: 358px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/repro_1.js"></script>
+        <script src="data/Industrial_2.js"></script>
+        <script src="data/Residential_3.js"></script>
+        <script src="data/Commercial_4.js"></script>
+        <script src="data/Farmland_5.js"></script>
+        <script src="data/Education_6.js"></script>
+        <script src="data/IndustrialBuilding_7.js"></script>
+        <script src="data/Farmyard_8.js"></script>
+        <script src="data/Landfill_9.js"></script>
+        <script src="data/House_10.js"></script>
+        <script src="data/Wetland_11.js"></script>
+        <script src="data/CommercialBuilding_12.js"></script>
+        <script src="data/SamplingPoint_33.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+            map.setMaxBounds(map.getBounds());
+        }
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('http://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 22
+        });
+        layer_GoogleSatellite_0;
+        map.addLayer(layer_GoogleSatellite_0);
+        function pop_repro_1(feature, layer) {
+        }
+
+        function style_repro_1_0() {
+            return {
+                pane: 'pane_repro_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_repro_1');
+        map.getPane('pane_repro_1').style.zIndex = 401;
+        map.getPane('pane_repro_1').style['mix-blend-mode'] = 'normal';
+        var layer_repro_1 = new L.geoJson(json_repro_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_repro_1',
+            layerName: 'layer_repro_1',
+            pane: 'pane_repro_1',
+            onEachFeature: pop_repro_1,
+            style: style_repro_1_0,
+        });
+        bounds_group.addLayer(layer_repro_1);
+        map.addLayer(layer_repro_1);
+        function pop_Industrial_2(feature, layer) {
+        }
+
+        function style_Industrial_2_0() {
+            return {
+                pane: 'pane_Industrial_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,125,183,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Industrial_2');
+        map.getPane('pane_Industrial_2').style.zIndex = 402;
+        map.getPane('pane_Industrial_2').style['mix-blend-mode'] = 'normal';
+        var layer_Industrial_2 = new L.geoJson(json_Industrial_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Industrial_2',
+            layerName: 'layer_Industrial_2',
+            pane: 'pane_Industrial_2',
+            onEachFeature: pop_Industrial_2,
+            style: style_Industrial_2_0,
+        });
+        bounds_group.addLayer(layer_Industrial_2);
+        map.addLayer(layer_Industrial_2);
+        function pop_Residential_3(feature, layer) {
+        }
+
+        function style_Residential_3_0() {
+            return {
+                pane: 'pane_Residential_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,89,137,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Residential_3');
+        map.getPane('pane_Residential_3').style.zIndex = 403;
+        map.getPane('pane_Residential_3').style['mix-blend-mode'] = 'normal';
+        var layer_Residential_3 = new L.geoJson(json_Residential_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Residential_3',
+            layerName: 'layer_Residential_3',
+            pane: 'pane_Residential_3',
+            onEachFeature: pop_Residential_3,
+            style: style_Residential_3_0,
+        });
+        bounds_group.addLayer(layer_Residential_3);
+        map.addLayer(layer_Residential_3);
+        function pop_Commercial_4(feature, layer) {
+        }
+
+        function style_Commercial_4_0() {
+            return {
+                pane: 'pane_Commercial_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Commercial_4');
+        map.getPane('pane_Commercial_4').style.zIndex = 404;
+        map.getPane('pane_Commercial_4').style['mix-blend-mode'] = 'normal';
+        var layer_Commercial_4 = new L.geoJson(json_Commercial_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Commercial_4',
+            layerName: 'layer_Commercial_4',
+            pane: 'pane_Commercial_4',
+            onEachFeature: pop_Commercial_4,
+            style: style_Commercial_4_0,
+        });
+        bounds_group.addLayer(layer_Commercial_4);
+        map.addLayer(layer_Commercial_4);
+        function pop_Farmland_5(feature, layer) {
+        }
+
+        function style_Farmland_5_0() {
+            return {
+                pane: 'pane_Farmland_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Farmland_5');
+        map.getPane('pane_Farmland_5').style.zIndex = 405;
+        map.getPane('pane_Farmland_5').style['mix-blend-mode'] = 'normal';
+        var layer_Farmland_5 = new L.geoJson(json_Farmland_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Farmland_5',
+            layerName: 'layer_Farmland_5',
+            pane: 'pane_Farmland_5',
+            onEachFeature: pop_Farmland_5,
+            style: style_Farmland_5_0,
+        });
+        bounds_group.addLayer(layer_Farmland_5);
+        map.addLayer(layer_Farmland_5);
+        function pop_Education_6(feature, layer) {
+        }
+
+        function style_Education_6_0() {
+            return {
+                pane: 'pane_Education_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Education_6');
+        map.getPane('pane_Education_6').style.zIndex = 406;
+        map.getPane('pane_Education_6').style['mix-blend-mode'] = 'normal';
+        var layer_Education_6 = new L.geoJson(json_Education_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Education_6',
+            layerName: 'layer_Education_6',
+            pane: 'pane_Education_6',
+            onEachFeature: pop_Education_6,
+            style: style_Education_6_0,
+        });
+        bounds_group.addLayer(layer_Education_6);
+        map.addLayer(layer_Education_6);
+        function pop_IndustrialBuilding_7(feature, layer) {
+        }
+
+        function style_IndustrialBuilding_7_0() {
+            return {
+                pane: 'pane_IndustrialBuilding_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,113,72,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_IndustrialBuilding_7');
+        map.getPane('pane_IndustrialBuilding_7').style.zIndex = 407;
+        map.getPane('pane_IndustrialBuilding_7').style['mix-blend-mode'] = 'normal';
+        var layer_IndustrialBuilding_7 = new L.geoJson(json_IndustrialBuilding_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_IndustrialBuilding_7',
+            layerName: 'layer_IndustrialBuilding_7',
+            pane: 'pane_IndustrialBuilding_7',
+            onEachFeature: pop_IndustrialBuilding_7,
+            style: style_IndustrialBuilding_7_0,
+        });
+        bounds_group.addLayer(layer_IndustrialBuilding_7);
+        map.addLayer(layer_IndustrialBuilding_7);
+        function pop_Farmyard_8(feature, layer) {
+        }
+
+        function style_Farmyard_8_0() {
+            return {
+                pane: 'pane_Farmyard_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Farmyard_8');
+        map.getPane('pane_Farmyard_8').style.zIndex = 408;
+        map.getPane('pane_Farmyard_8').style['mix-blend-mode'] = 'normal';
+        var layer_Farmyard_8 = new L.geoJson(json_Farmyard_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Farmyard_8',
+            layerName: 'layer_Farmyard_8',
+            pane: 'pane_Farmyard_8',
+            onEachFeature: pop_Farmyard_8,
+            style: style_Farmyard_8_0,
+        });
+        bounds_group.addLayer(layer_Farmyard_8);
+        map.addLayer(layer_Farmyard_8);
+        function pop_Landfill_9(feature, layer) {
+        }
+
+        function style_Landfill_9_0() {
+            return {
+                pane: 'pane_Landfill_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,207,80,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Landfill_9');
+        map.getPane('pane_Landfill_9').style.zIndex = 409;
+        map.getPane('pane_Landfill_9').style['mix-blend-mode'] = 'normal';
+        var layer_Landfill_9 = new L.geoJson(json_Landfill_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Landfill_9',
+            layerName: 'layer_Landfill_9',
+            pane: 'pane_Landfill_9',
+            onEachFeature: pop_Landfill_9,
+            style: style_Landfill_9_0,
+        });
+        bounds_group.addLayer(layer_Landfill_9);
+        map.addLayer(layer_Landfill_9);
+        function pop_House_10(feature, layer) {
+        }
+
+        function style_House_10_0() {
+            return {
+                pane: 'pane_House_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,72,75,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_House_10');
+        map.getPane('pane_House_10').style.zIndex = 410;
+        map.getPane('pane_House_10').style['mix-blend-mode'] = 'normal';
+        var layer_House_10 = new L.geoJson(json_House_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_House_10',
+            layerName: 'layer_House_10',
+            pane: 'pane_House_10',
+            onEachFeature: pop_House_10,
+            style: style_House_10_0,
+        });
+        bounds_group.addLayer(layer_House_10);
+        map.addLayer(layer_House_10);
+        function pop_Wetland_11(feature, layer) {
+        }
+
+        function style_Wetland_11_0() {
+            return {
+                pane: 'pane_Wetland_11',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(229,182,54,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Wetland_11');
+        map.getPane('pane_Wetland_11').style.zIndex = 411;
+        map.getPane('pane_Wetland_11').style['mix-blend-mode'] = 'normal';
+        var layer_Wetland_11 = new L.geoJson(json_Wetland_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Wetland_11',
+            layerName: 'layer_Wetland_11',
+            pane: 'pane_Wetland_11',
+            onEachFeature: pop_Wetland_11,
+            style: style_Wetland_11_0,
+        });
+        bounds_group.addLayer(layer_Wetland_11);
+        map.addLayer(layer_Wetland_11);
+        function pop_CommercialBuilding_12(feature, layer) {
+        }
+
+        function style_CommercialBuilding_12_0() {
+            return {
+                pane: 'pane_CommercialBuilding_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,155,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CommercialBuilding_12');
+        map.getPane('pane_CommercialBuilding_12').style.zIndex = 412;
+        map.getPane('pane_CommercialBuilding_12').style['mix-blend-mode'] = 'normal';
+        var layer_CommercialBuilding_12 = new L.geoJson(json_CommercialBuilding_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CommercialBuilding_12',
+            layerName: 'layer_CommercialBuilding_12',
+            pane: 'pane_CommercialBuilding_12',
+            onEachFeature: pop_CommercialBuilding_12,
+            style: style_CommercialBuilding_12_0,
+        });
+        bounds_group.addLayer(layer_CommercialBuilding_12);
+        map.addLayer(layer_CommercialBuilding_12);
+        map.createPane('pane_EColi_13');
+        map.getPane('pane_EColi_13').style.zIndex = 413;
+        var img_EColi_13 = 'data/EColi_13.png';
+        var img_bounds_EColi_13 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_EColi_13 = new L.imageOverlay(img_EColi_13,
+                                              img_bounds_EColi_13,
+                                              {pane: 'pane_EColi_13'});
+        bounds_group.addLayer(layer_EColi_13);
+        map.addLayer(layer_EColi_13);
+        map.createPane('pane_TColi_14');
+        map.getPane('pane_TColi_14').style.zIndex = 414;
+        var img_TColi_14 = 'data/TColi_14.png';
+        var img_bounds_TColi_14 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_TColi_14 = new L.imageOverlay(img_TColi_14,
+                                              img_bounds_TColi_14,
+                                              {pane: 'pane_TColi_14'});
+        bounds_group.addLayer(layer_TColi_14);
+        map.addLayer(layer_TColi_14);
+        map.createPane('pane_FColi_15');
+        map.getPane('pane_FColi_15').style.zIndex = 415;
+        var img_FColi_15 = 'data/FColi_15.png';
+        var img_bounds_FColi_15 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_FColi_15 = new L.imageOverlay(img_FColi_15,
+                                              img_bounds_FColi_15,
+                                              {pane: 'pane_FColi_15'});
+        bounds_group.addLayer(layer_FColi_15);
+        map.addLayer(layer_FColi_15);
+        map.createPane('pane_Surfactant_16');
+        map.getPane('pane_Surfactant_16').style.zIndex = 416;
+        var img_Surfactant_16 = 'data/Surfactant_16.png';
+        var img_bounds_Surfactant_16 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Surfactant_16 = new L.imageOverlay(img_Surfactant_16,
+                                              img_bounds_Surfactant_16,
+                                              {pane: 'pane_Surfactant_16'});
+        bounds_group.addLayer(layer_Surfactant_16);
+        map.addLayer(layer_Surfactant_16);
+        map.createPane('pane_H2S_17');
+        map.getPane('pane_H2S_17').style.zIndex = 417;
+        var img_H2S_17 = 'data/H2S_17.png';
+        var img_bounds_H2S_17 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_H2S_17 = new L.imageOverlay(img_H2S_17,
+                                              img_bounds_H2S_17,
+                                              {pane: 'pane_H2S_17'});
+        bounds_group.addLayer(layer_H2S_17);
+        map.addLayer(layer_H2S_17);
+        map.createPane('pane_Cl_18');
+        map.getPane('pane_Cl_18').style.zIndex = 418;
+        var img_Cl_18 = 'data/Cl_18.png';
+        var img_bounds_Cl_18 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Cl_18 = new L.imageOverlay(img_Cl_18,
+                                              img_bounds_Cl_18,
+                                              {pane: 'pane_Cl_18'});
+        bounds_group.addLayer(layer_Cl_18);
+        map.addLayer(layer_Cl_18);
+        map.createPane('pane_Sulphate_19');
+        map.getPane('pane_Sulphate_19').style.zIndex = 419;
+        var img_Sulphate_19 = 'data/Sulphate_19.png';
+        var img_bounds_Sulphate_19 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Sulphate_19 = new L.imageOverlay(img_Sulphate_19,
+                                              img_bounds_Sulphate_19,
+                                              {pane: 'pane_Sulphate_19'});
+        bounds_group.addLayer(layer_Sulphate_19);
+        map.addLayer(layer_Sulphate_19);
+        map.createPane('pane_Nitrate_20');
+        map.getPane('pane_Nitrate_20').style.zIndex = 420;
+        var img_Nitrate_20 = 'data/Nitrate_20.png';
+        var img_bounds_Nitrate_20 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Nitrate_20 = new L.imageOverlay(img_Nitrate_20,
+                                              img_bounds_Nitrate_20,
+                                              {pane: 'pane_Nitrate_20'});
+        bounds_group.addLayer(layer_Nitrate_20);
+        map.addLayer(layer_Nitrate_20);
+        map.createPane('pane_Nitrite_21');
+        map.getPane('pane_Nitrite_21').style.zIndex = 421;
+        var img_Nitrite_21 = 'data/Nitrite_21.png';
+        var img_bounds_Nitrite_21 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Nitrite_21 = new L.imageOverlay(img_Nitrite_21,
+                                              img_bounds_Nitrite_21,
+                                              {pane: 'pane_Nitrite_21'});
+        bounds_group.addLayer(layer_Nitrite_21);
+        map.addLayer(layer_Nitrite_21);
+        map.createPane('pane_Ammonia_22');
+        map.getPane('pane_Ammonia_22').style.zIndex = 422;
+        var img_Ammonia_22 = 'data/Ammonia_22.png';
+        var img_bounds_Ammonia_22 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Ammonia_22 = new L.imageOverlay(img_Ammonia_22,
+                                              img_bounds_Ammonia_22,
+                                              {pane: 'pane_Ammonia_22'});
+        bounds_group.addLayer(layer_Ammonia_22);
+        map.addLayer(layer_Ammonia_22);
+        map.createPane('pane_Zn_23');
+        map.getPane('pane_Zn_23').style.zIndex = 423;
+        var img_Zn_23 = 'data/Zn_23.png';
+        var img_bounds_Zn_23 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Zn_23 = new L.imageOverlay(img_Zn_23,
+                                              img_bounds_Zn_23,
+                                              {pane: 'pane_Zn_23'});
+        bounds_group.addLayer(layer_Zn_23);
+        map.addLayer(layer_Zn_23);
+        map.createPane('pane_Phosphate_24');
+        map.getPane('pane_Phosphate_24').style.zIndex = 424;
+        var img_Phosphate_24 = 'data/Phosphate_24.png';
+        var img_bounds_Phosphate_24 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Phosphate_24 = new L.imageOverlay(img_Phosphate_24,
+                                              img_bounds_Phosphate_24,
+                                              {pane: 'pane_Phosphate_24'});
+        bounds_group.addLayer(layer_Phosphate_24);
+        map.addLayer(layer_Phosphate_24);
+        map.createPane('pane_Mn_25');
+        map.getPane('pane_Mn_25').style.zIndex = 425;
+        var img_Mn_25 = 'data/Mn_25.png';
+        var img_bounds_Mn_25 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Mn_25 = new L.imageOverlay(img_Mn_25,
+                                              img_bounds_Mn_25,
+                                              {pane: 'pane_Mn_25'});
+        bounds_group.addLayer(layer_Mn_25);
+        map.addLayer(layer_Mn_25);
+        map.createPane('pane_Fe_26');
+        map.getPane('pane_Fe_26').style.zIndex = 426;
+        var img_Fe_26 = 'data/Fe_26.png';
+        var img_bounds_Fe_26 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Fe_26 = new L.imageOverlay(img_Fe_26,
+                                              img_bounds_Fe_26,
+                                              {pane: 'pane_Fe_26'});
+        bounds_group.addLayer(layer_Fe_26);
+        map.addLayer(layer_Fe_26);
+        map.createPane('pane_BOD_27');
+        map.getPane('pane_BOD_27').style.zIndex = 427;
+        var img_BOD_27 = 'data/BOD_27.png';
+        var img_bounds_BOD_27 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_BOD_27 = new L.imageOverlay(img_BOD_27,
+                                              img_bounds_BOD_27,
+                                              {pane: 'pane_BOD_27'});
+        bounds_group.addLayer(layer_BOD_27);
+        map.addLayer(layer_BOD_27);
+        map.createPane('pane_COD_28');
+        map.getPane('pane_COD_28').style.zIndex = 428;
+        var img_COD_28 = 'data/COD_28.png';
+        var img_bounds_COD_28 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_COD_28 = new L.imageOverlay(img_COD_28,
+                                              img_bounds_COD_28,
+                                              {pane: 'pane_COD_28'});
+        bounds_group.addLayer(layer_COD_28);
+        map.addLayer(layer_COD_28);
+        map.createPane('pane_DO_29');
+        map.getPane('pane_DO_29').style.zIndex = 429;
+        var img_DO_29 = 'data/DO_29.png';
+        var img_bounds_DO_29 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_DO_29 = new L.imageOverlay(img_DO_29,
+                                              img_bounds_DO_29,
+                                              {pane: 'pane_DO_29'});
+        bounds_group.addLayer(layer_DO_29);
+        map.addLayer(layer_DO_29);
+        map.createPane('pane_pH_30');
+        map.getPane('pane_pH_30').style.zIndex = 430;
+        var img_pH_30 = 'data/pH_30.png';
+        var img_bounds_pH_30 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_pH_30 = new L.imageOverlay(img_pH_30,
+                                              img_bounds_pH_30,
+                                              {pane: 'pane_pH_30'});
+        bounds_group.addLayer(layer_pH_30);
+        map.addLayer(layer_pH_30);
+        map.createPane('pane_Turbidity_31');
+        map.getPane('pane_Turbidity_31').style.zIndex = 431;
+        var img_Turbidity_31 = 'data/Turbidity_31.png';
+        var img_bounds_Turbidity_31 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_Turbidity_31 = new L.imageOverlay(img_Turbidity_31,
+                                              img_bounds_Turbidity_31,
+                                              {pane: 'pane_Turbidity_31'});
+        bounds_group.addLayer(layer_Turbidity_31);
+        map.addLayer(layer_Turbidity_31);
+        map.createPane('pane_TDS_32');
+        map.getPane('pane_TDS_32').style.zIndex = 432;
+        var img_TDS_32 = 'data/TDS_32.png';
+        var img_bounds_TDS_32 = [[-6.450295155947543,106.87879516194079],[-6.236982892307653,107.37887090702769]];
+        var layer_TDS_32 = new L.imageOverlay(img_TDS_32,
+                                              img_bounds_TDS_32,
+                                              {pane: 'pane_TDS_32'});
+        bounds_group.addLayer(layer_TDS_32);
+        map.addLayer(layer_TDS_32);
+        function pop_SamplingPoint_33(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Lat</th>\
+                        <td>' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Long</th>\
+                        <td>' + (feature.properties['Long'] !== null ? autolinker.link(feature.properties['Long'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TDS</th>\
+                        <td>' + (feature.properties['TDS'] !== null ? autolinker.link(feature.properties['TDS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Turbidity</th>\
+                        <td>' + (feature.properties['Turbidity'] !== null ? autolinker.link(feature.properties['Turbidity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">pH</th>\
+                        <td>' + (feature.properties['pH'] !== null ? autolinker.link(feature.properties['pH'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DO</th>\
+                        <td>' + (feature.properties['DO'] !== null ? autolinker.link(feature.properties['DO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BOD</th>\
+                        <td>' + (feature.properties['BOD'] !== null ? autolinker.link(feature.properties['BOD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">COD</th>\
+                        <td>' + (feature.properties['COD'] !== null ? autolinker.link(feature.properties['COD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fe</th>\
+                        <td>' + (feature.properties['Fe'] !== null ? autolinker.link(feature.properties['Fe'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mn</th>\
+                        <td>' + (feature.properties['Mn'] !== null ? autolinker.link(feature.properties['Mn'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Phosphate</th>\
+                        <td>' + (feature.properties['Phosphate'] !== null ? autolinker.link(feature.properties['Phosphate'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Zn</th>\
+                        <td>' + (feature.properties['Zn'] !== null ? autolinker.link(feature.properties['Zn'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ammonia</th>\
+                        <td>' + (feature.properties['Ammonia'] !== null ? autolinker.link(feature.properties['Ammonia'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nitrite</th>\
+                        <td>' + (feature.properties['Nitrite'] !== null ? autolinker.link(feature.properties['Nitrite'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nitrate</th>\
+                        <td>' + (feature.properties['Nitrate'] !== null ? autolinker.link(feature.properties['Nitrate'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sulphate</th>\
+                        <td>' + (feature.properties['Sulphate'] !== null ? autolinker.link(feature.properties['Sulphate'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cl</th>\
+                        <td>' + (feature.properties['Cl'] !== null ? autolinker.link(feature.properties['Cl'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">H2s</th>\
+                        <td>' + (feature.properties['H2s'] !== null ? autolinker.link(feature.properties['H2s'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Surfaktan</th>\
+                        <td>' + (feature.properties['Surfaktan'] !== null ? autolinker.link(feature.properties['Surfaktan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">F-Coli</th>\
+                        <td>' + (feature.properties['F-Coli'] !== null ? autolinker.link(feature.properties['F-Coli'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">T-Coli</th>\
+                        <td>' + (feature.properties['T-Coli'] !== null ? autolinker.link(feature.properties['T-Coli'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">E-Coli</th>\
+                        <td>' + (feature.properties['E-Coli'] !== null ? autolinker.link(feature.properties['E-Coli'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SamplingPoint_33_0() {
+            return {
+                pane: 'pane_SamplingPoint_33',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SamplingPoint_33');
+        map.getPane('pane_SamplingPoint_33').style.zIndex = 433;
+        map.getPane('pane_SamplingPoint_33').style['mix-blend-mode'] = 'normal';
+        var layer_SamplingPoint_33 = new L.geoJson(json_SamplingPoint_33, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SamplingPoint_33',
+            layerName: 'layer_SamplingPoint_33',
+            pane: 'pane_SamplingPoint_33',
+            onEachFeature: pop_SamplingPoint_33,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_SamplingPoint_33_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SamplingPoint_33);
+        map.addLayer(layer_SamplingPoint_33);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/SamplingPoint_33.png" /> SamplingPoint': layer_SamplingPoint_33,"TDS": layer_TDS_32,"Turbidity": layer_Turbidity_31,"pH": layer_pH_30,"DO": layer_DO_29,"COD": layer_COD_28,"BOD": layer_BOD_27,"Fe": layer_Fe_26,"Mn": layer_Mn_25,"Phosphate": layer_Phosphate_24,"Zn": layer_Zn_23,"Ammonia": layer_Ammonia_22,"Nitrite": layer_Nitrite_21,"Nitrate": layer_Nitrate_20,"Sulphate": layer_Sulphate_19,"Cl": layer_Cl_18,"H2S": layer_H2S_17,"Surfactant": layer_Surfactant_16,"F. Coli": layer_FColi_15,"T. Coli": layer_TColi_14,"E. Coli": layer_EColi_13,'<img src="legend/CommercialBuilding_12.png" /> Commercial Building': layer_CommercialBuilding_12,'<img src="legend/Wetland_11.png" /> Wetland': layer_Wetland_11,'<img src="legend/House_10.png" /> House': layer_House_10,'<img src="legend/Landfill_9.png" /> Landfill': layer_Landfill_9,'<img src="legend/Farmyard_8.png" /> Farmyard': layer_Farmyard_8,'<img src="legend/IndustrialBuilding_7.png" /> Industrial Building': layer_IndustrialBuilding_7,'<img src="legend/Education_6.png" /> Education': layer_Education_6,'<img src="legend/Farmland_5.png" /> Farmland': layer_Farmland_5,'<img src="legend/Commercial_4.png" /> Commercial': layer_Commercial_4,'<img src="legend/Residential_3.png" /> Residential': layer_Residential_3,'<img src="legend/Industrial_2.png" /> Industrial': layer_Industrial_2,'<img src="legend/repro_1.png" /> repro': layer_repro_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_SamplingPoint_33.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_SamplingPoint_33'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        resetLabels([layer_SamplingPoint_33]);
+        map.on("zoomend", function(){
+            resetLabels([layer_SamplingPoint_33]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_SamplingPoint_33]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_SamplingPoint_33]);
+        });
+        </script>
+    </body>
+</html>
